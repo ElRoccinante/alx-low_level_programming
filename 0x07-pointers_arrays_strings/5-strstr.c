@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
+ * _strstr - Finds the first occurrence of the substring needle in the string haystack
+ * @haystack: The string to search in
+ * @needle: The substring to search for
  * Return: Always 0 (Success)
  */
 char *_strstr(char *haystack, char *needle)
