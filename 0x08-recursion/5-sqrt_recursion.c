@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - Calculates the square root of a number.
+ * _sqrt_recursion - Calculates the square root of n using recursion.
  * @n: An input integer.
- * Return: The square root of n.
+ * Return: The square root of n, or -1 if n is negative.
  */
 int _sqrt_recursion(int n)
 {
@@ -12,7 +12,6 @@ int _sqrt_recursion(int n)
 
 	return (_sqrt(1, n));
 }
-
 
 int _sqrt(int prev, int root)
 {
