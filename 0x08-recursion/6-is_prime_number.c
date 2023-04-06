@@ -1,7 +1,7 @@
 /**
- * is_prime_number - Une fonction qui vérifie si un nombre est premier.
- * @n: un entier en entrée
- * Retourne : 1 si n est premier, sinon 0
+ * is_prime_number - A function that checks if a number is prime.
+ * @n: an input integer
+ * Return: 1 if n is prime, 0 otherwise
  */
 int is_prime_number(int n)
 {
@@ -13,7 +13,11 @@ int is_prime_number(int n)
 	if (n <= 3)
 		return (1);
 
-	for (div = 2; div <= n / 2; div++)
+	if (n % 2 == 0)
+		return (0); /* Even numbers (except 2) are not primes */
+
+	/* Only check up to the square root of n */
+	for (div = 3; div * div <= n; div += 2)
 	{
 		if (n % div == 0)
 			return (0);
