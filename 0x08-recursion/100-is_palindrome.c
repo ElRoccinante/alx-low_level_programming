@@ -1,25 +1,20 @@
-#include "main.h"                                                                                                                     
-                                                                                                                                      
-int find_strlen(char *s);                                                                                                             
-int check_palindrome(char *s, int len, int index);                                                                                    
-int is_palindrome(char *s);                                                                                                           
-                                                                                                                                      
-/**                                                                                                                                   
- * find_strlen - Returns the length of a string.                                                                                      
- * @s: The string to be measured.                                                                                                     
- *                                                                                                                                    
- * Return: The length of the string.                                                                                                  
- */                                                                                                                                   
-int find_strlen(char *s)                                                                                                              
-{                                                                                                                                     
-        int len = 0;                                                                                                                  
-                                                                                                                                      
-        if (*(s + len))                                                                                                               
-        {                                                                                                                             
-                len++;                                                                                                                
-                len += find_strlen(s + len);                                                                                          
-        }                                                                                                                             
-                                                                                                                                      
-        return (len);                                                                                                                 
-}
+#include "main.h"
 
+/**
+ * wildcmp - Une fonction qui compare deux chaînes de caractères
+ * @s1: Premier argument chaîne de caractères
+ * @s2: Deuxième argument chaîne de caractères
+ * Return: 1 si les chaînes sont identiques, 0 sinon
+ */
+int wildcmp(char *s1, char *s2)
+{
+    if (!*s1 && !*s2)
+        return (1);
+    if (*s1 == *s2)
+        return (wildcmp(s1 + 1, s2 + 1));
+    if (*s2 == '*' && (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2)))
+        return (1);
+    if (*s2 == '*' && *(s1 + 1) && *s2)
+        return (0);
+    return (0);
+}
