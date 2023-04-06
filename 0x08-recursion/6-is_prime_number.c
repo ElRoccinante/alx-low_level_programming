@@ -17,10 +17,10 @@ int is_divisible(int num, int div);
  */
 int is_prime_number(int n)
 {
-        if (n <= 1)
-                return (0);
+	if (n <= 1)
+		return (0);
 
-        return (is_divisible(n, 2));
+	return (is_divisible(n, 2));
 }
 
 /**
@@ -33,11 +33,11 @@ int is_prime_number(int n)
  */
 int is_divisible(int num, int div)
 {
-        if (div >= num / 2)
-                return (1);
+	if (div >= num / 2)
+		return (1);
 
-        if (num % div == 0)
-                return (0);
+	if (num % div == 0)
+		return (0);
 
-        return (is_divisible(num, div + 1));
+	return (is_divisible(num, div + 1));
 }
