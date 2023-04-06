@@ -8,13 +8,15 @@ int _sqrt_iterative(int n)
 	if (n < 0)
 		return (-1);
 
-	int i = 1;
-	while (i * i <= n)
+	int i = 0;
+	int result = 0;
+	while (result < n)
 	{
-		if (i * i == n)
-			return (i);
 		i++;
+		result = i * i;
 	}
-
-	return (-1); // Si n n'est pas un carré parfait, retourne -1
+	if (result > n)
+		return (-1);
+	else
+		return (i);
 }
