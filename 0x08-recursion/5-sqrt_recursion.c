@@ -10,22 +10,28 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	int prev = 1;
-	return (_sqrt(prev, n));
+	return (_sqrt_helper(n, 0, n));
 }
 
 /**
- * _sqrt - Calcule la racine carrée.
- * @prev: La valeur précédente.
- * @root: La valeur de la racine carrée.
- * Return: La racine carrée.
+ * _sqrt_helper - Calcule la racine carrée de n en utilisant la recherche binaire.
+ * @n: La valeur dont on cherche la racine carrée.
+ * @start: La valeur de départ pour la recherche binaire.
+ * @end: La valeur de fin pour la recherche binaire.
+ * Return: La racine carrée de n.
  */
-int _sqrt(int prev, int root)
+int _sqrt_helper(int n, int start, int end)
 {
-	if (prev > root)
+	if (start > end)
 		return (-1);
-	else if (prev * prev == root)
-		return (prev);
+
+	int mid = start + (end - start) / 2;
+	int square = mid * mid;
+
+	if (square == n)
+		return (mid);
+	else if (square > n)
+		return (_sqrt_helper(n, start, mid - 1));
 	else
-		return (_sqrt(prev + 1, root));
+		return (_sqrt_helper(n, mid + 1, end));
 }
