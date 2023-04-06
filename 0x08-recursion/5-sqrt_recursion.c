@@ -1,24 +1,24 @@
 #include "main.h"
-int _sqrt(int prev, int root);
 
 /**
- * _sqrt_recursion - It returns the value of square root of n.
- * @n: an input integer
- * Return: The square root of n
+ * _sqrt_recursion - Calcule la racine carrée de n.
+ * @n: Un entier en entrée.
+ * Return: La racine carrée de n.
  */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
 		return (-1);
 
-	return (_sqrt(1, n));
+	int prev = 1;
+	return (_sqrt(prev, n));
 }
 
 /**
- * _sqrt - find square root
- * @prev: previous value
- * @root: square root value
- * Return: the square root
+ * _sqrt - Calcule la racine carrée.
+ * @prev: La valeur précédente.
+ * @root: La valeur de la racine carrée.
+ * Return: La racine carrée.
  */
 int _sqrt(int prev, int root)
 {
@@ -26,5 +26,6 @@ int _sqrt(int prev, int root)
 		return (-1);
 	else if (prev * prev == root)
 		return (prev);
-	return (_sqrt(prev + 1, root));
+	else
+		return (_sqrt(prev + 1, root));
 }
