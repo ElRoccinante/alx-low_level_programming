@@ -1,14 +1,24 @@
 #include "main.h"
 
-int find_strlen(const char *s)
+int find_strlen(const char *s); // Déclarer le paramètre 's' comme pointeur constant
+int check_palindrome(const char *s, int len, int index); // Déclarer le paramètre 's' comme pointeur constant
+int is_palindrome(const char *s); // Déclarer le paramètre 's' comme pointeur constant
+
+/**
+ * find_strlen - Returns the length of a string.
+ * @s: The string to be measured.
+ *
+ * Return: The length of the string.
+ */
+int find_strlen(const char *s) // Déclarer le paramètre 's' comme pointeur constant
 {
-    int len = 0; // Initialize the length variable to 0
+        int len = 0;
 
-    // Loop through the string until the null character (\0) is found
-    while (s[len] != '\0')
-    {
-        len++; // Increment the length variable at each iteration
-    }
+        if (*(s + len))
+        {
+                len++;
+                len += find_strlen(s + len);
+        }
 
-    return len; // Return the calculated length of the string
+        return (len);
 }
