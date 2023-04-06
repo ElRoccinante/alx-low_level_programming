@@ -1,23 +1,13 @@
 #include "main.h"
 
 /**
- * factorial - Calculate factorial of a number.
- * @n: Input integer
- *
- * Return: Factorial of n, -1 for negative numbers
+ * _strlen_recursion - A function that calculates the length of a string recursively.
+ * @s: A pointer to the input string
+ * Return: The length of the string
  */
-int factorial(int n)
+int _strlen_recursion(char *s)
 {
-	int result = 1; /* Initialize result to 1 */
-	
-	if (n < 0) /* If n is negative */
-		return (-1)
-	
-	while (n > 1)
-	{
-		result *= n;
-		n--;
-	}
-	
-	return result;
+    if (*s)
+        return (1 + _strlen_recursion(s + 1));
+    return (0);
 }
