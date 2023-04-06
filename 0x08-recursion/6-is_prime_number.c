@@ -1,11 +1,14 @@
+#include "holberton.h"
+int is_divisible(int num, int div);
+
 /**
- * is_prime_number - A function that checks if a number is prime.
+ * is_prime_number - Afunction that checks if a number is prime.
  * @n: an input integer
- * Return: 1 if n is prime, 0 otherwise
+ * Return: 1 if n is prime or  0 in otherwise
  */
 int is_prime_number(int n)
 {
-	int div;
+	int div = 2;
 
 	if (n <= 1)
 		return (0);
@@ -13,15 +16,16 @@ int is_prime_number(int n)
 	if (n <= 3)
 		return (1);
 
-	if (n % 2 == 0)
-		return (0); /* Even numbers (except 2) are not primes */
+	return (is_divisible(n, div));
+}
 
-	/* Only check up to the square root of n */
-	for (div = 3; div * div <= n; div += 2)
-	{
-		if (n % div == 0)
-			return (0);
-	}
+int is_divisible(int num, int div)
+{
+	if (num % div == 0)
+		return (0);
 
-	return (1);
+	if (div == num / 2)
+		return (1);
+
+	return (is_divisible(num, div + 1));
 }
