@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /**
- * main - prints the minimum number of coins
+ * main - This function calculates the minimum number of coins needed
+ *        to represent a given amount of cents.
  * @argc: The number of arguments passed to the program
  * @argv: An array of pointers to the arguments
  *
@@ -15,7 +16,7 @@ int main(int argc, char **argv)
     if (argc != 2)
     {
         printf("Error\n");
-        return (1);
+        return 1;
     }
 
     cents = atoi(argv[1]);
@@ -23,7 +24,7 @@ int main(int argc, char **argv)
     if (cents < 0)
     {
         printf("0\n");
-        return (0);
+        return 0;
     }
 
     while (cents > 0)
@@ -38,7 +39,11 @@ int main(int argc, char **argv)
             cents -= 2;
         else
             cents -= 1;
+
+        coins++;
     }
 
-    return (0);
+    printf("%d\n", coins);
+
+    return 0;
 }
