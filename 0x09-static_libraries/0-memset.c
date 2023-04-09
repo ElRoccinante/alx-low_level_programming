@@ -1,11 +1,17 @@
 #include "main.h"
 
 /**
- * _memset - remplit la mémoire avec des octets constants
- * @s: pointeur vers l'emplacement à remplir
- * @b: octet à utiliser pour remplir l'emplacement
- * @n: nombre d'octets à remplir
- * Return: renvoie un pointeur vers l'emplacement rempli
+ * _memset - fills a block of memory with a specified value
+ *
+ * This function fills a block of memory with a specified value, starting
+ * from the address pointed to by 's' and continuing for 'n' bytes. The value
+ * to be set is specified by the character 'b'.
+ *
+ * @s: a pointer to the block of memory to fill
+ * @b: the value to set the memory to
+ * @n: the number of bytes to fill
+ *
+ * Return: a pointer to the start of the filled memory block
  */
 char *_memset(char *s, char b, unsigned int n)
 {

@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _memcpy - copie une zone de mémoire
- * @dest: destination de la copie
- * @src: source de la copie
- * @n: nombre d'octets à copier
- * Return: pointeur vers l'emplacement de la copie
+ * _memcpy - a function that copies a memory area
+ * @dest: pointer to the destination memory area
+ * @src: pointer to the source memory area
+ * @n: number of bytes to copy
+ * Return: pointer to the start of the copy destination
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
