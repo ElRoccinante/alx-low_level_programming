@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - This function calculates the minimum number of coins needed
- *        to represent a given amount of cents.
+ * main - prints the minimum number of coins
  * @argc: The number of arguments passed to the program
  * @argv: An array of pointers to the arguments
  *
