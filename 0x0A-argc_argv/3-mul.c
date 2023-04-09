@@ -9,18 +9,18 @@
  */
 int main(int argc, char *argv[])
 {
-    int y1, y2;
+	int y1, y2;
 
-    if (argc != 3)
-    {
-        printf("Error\n");
-        return 1;
-    }
-    else
-    {
-        y1 = atoi(argv[1]);
-        y2 = atoi(argv[2]);
-        printf("%d\n", y1 * y2);
-        return 0;
-    }
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	else
+	{
+		y1 = atoi(argv[1]);
+		y2 = atoi(argv[2]);
+		printf("%d\n", y1 * y2);
+		return (0);
+	}
 }
