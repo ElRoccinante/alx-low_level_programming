@@ -2,20 +2,24 @@
 #include <stdlib.h>
 
 /**
- * *create_array - creates an array of chars, and initializes
- *  it with a specific char.
- *  @c: char to initialize
- *  @size: number of bytes to allocate
- *
- *  Return: a pointer to the array or null if it fails
- */
+
+create_array - Creates an array of chars and initializes it with a specific char.
+
+@c: Char to initialize the array with.
+
+@size: Number of bytes to allocate.
+
+Return: A pointer to the array, or NULL if it fails.
+*/
 char *create_array(unsigned int size, char c)
 {
-	char *array = malloc(size);
+char *array = malloc(size);
 
-	if (size == 0 || array == 0)
-		return (NULL);
-	while (size--)
-		array[size] = c;
-	return (array);
+if (size == 0 || array == NULL)
+return (NULL);
+
+while (size--)
+array[size] = c;
+
+return (array);
 }
