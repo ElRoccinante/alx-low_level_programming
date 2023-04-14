@@ -1,4 +1,5 @@
-#include <stdlib.h> 
+#include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -11,13 +12,12 @@
  */
 void *malloc_checked(unsigned int b)
 {
-    void *p = malloc(b);  // Use void pointer for generalization
+    void *p = malloc(b);  /* Use void pointer for generalization */
 
     if (p == NULL)
     {
-        fprintf(stderr, "Error: malloc failed\n");  // Print error message
-        exit(98);  // Terminate program with status value 98
+        fprintf(stderr, "Error: malloc failed\n");  /* Print error message */
+        exit(98);  /* Terminate program with status value 98 */
     }
 
     return p;
-}
