@@ -1,21 +1,23 @@
+#include <stdlib.h> 
 #include "main.h"
 
 /**
- * malloc_checked - Allocates memory and terminates process with status value of 98 if allocation fails
+ * malloc_checked - allocates memory using malloc
+ * @b: number of bytes to allocate
  *
- * @b: Size of memory to be allocated
- *
- * Return: Pointer to the allocated memory
+ * Return: a pointer to the allocated memory.
+ * If malloc fails, the function will print an error message and terminate
+ * the program with a status value of 98.
  */
 void *malloc_checked(unsigned int b)
 {
-    void *ptr = malloc(b);
-    
-    if (ptr == NULL)
+    void *p = malloc(b);  // Use void pointer for generalization
+
+    if (p == NULL)
     {
-        printf("Error: malloc failed\n");
-        exit(98);
+        fprintf(stderr, "Error: malloc failed\n");  // Print error message
+        exit(98);  // Terminate program with status value 98
     }
-    
-    return ptr;
+
+    return p;
 }
