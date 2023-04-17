@@ -1,23 +1,29 @@
 #include "dog.h"
 
 /**
- * init_dog - initialize dog struct
+ * init_dog - Initialize a dog struct
  *
- * @d: input pointer to struct dog
- * @name: input for dog name
- * @age: input for dog age
- * @owner: input for dog owner
+ * @d: Pointer to a struct dog
+ * @name: Input for the dog's name
+ * @age: Input for the dog's age
+ * @owner: Input for the dog's owner
  *
- * Return: nothing
+ * Return: Nothing
  */
-
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d)
 	{
-		/*d->name = name;*/
+		/* Commented out the original assignment to dog's name */
+		/* d->name = name; */
+
+		/* Assign the dog's name */
 		(*d).name = name;
+
+		/* Assign the dog's age */
 		(*d).age = age;
+
+		/* Assign the dog's owner */
 		(*d).owner = owner;
 	}
 }
