@@ -2,16 +2,16 @@
 #include <stdio.h>
 
 /**
- * display_name - displays name using pointer to function
- * @name: string to display
- * @func: pointer to function
+ * print_name - print name using pointer to function
+ * @name: string to add
+ * @f: pointer to function
  *
- * Return: void
+ * Return: nothing
  **/
-void display_name(char *name, void (*func)(char *))
+void print_name(char *name, void (*f)(char *))
 {
-	if (name == NULL || func == NULL)
+	if (name == NULL || f == NULL)
 		return;
 
-	func(name);
+	f(name);
 }
