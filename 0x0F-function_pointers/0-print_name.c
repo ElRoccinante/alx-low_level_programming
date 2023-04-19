@@ -1,20 +1,17 @@
-#include <stdio.h>
 #include "function_pointers.h"
 
-/* Define a typedef for the function pointer */
-typedef void (*func_ptr)(char *);
-
-/* Define the function which prints the name */
-void print_name(char *name, func_ptr f);
-
-/* Implement the function */
-void print_name(char *name, func_ptr f)
+/**
+ * print_name - prints a name using a pointer to function
+ *
+ * @name: pointer to string to be printed
+ * @f: pointer to function to be used to print the name
+ *
+ * Return: Nothing.
+ */
+void print_name(char *name, void (*f)(char *))
 {
-	/* Check if the arguments are valid */
-	if (name == NULL || f == NULL) {
+	if (name == NULL || f == NULL)
 		return;
-	}
 
-	/* Call the function using the function pointer */
 	f(name);
 }
