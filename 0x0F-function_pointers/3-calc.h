@@ -2,9 +2,10 @@
 #define CALC_H
 
 /**
- * struct op - A struct op.
- * @op: The operator.
- * @f: The associated function.
+ * struct op - Struct for operators
+ *
+ * @op: The operator symbol
+ * @f: The function associated with the operator
  */
 typedef struct op
 {
@@ -12,11 +13,14 @@ typedef struct op
     int (*f)(int a, int b);
 } op_t;
 
-int op_add(int a, int b);
-int op_sub(int a, int b);
-int op_mul(int a, int b);
-int op_div(int a, int b);
-int op_mod(int a, int b);
+/* Function prototypes for basic arithmetic operations */
+int op_add(int a, int b); /* Adds two integers */
+int op_sub(int a, int b); /* Subtracts two integers */
+int op_mul(int a, int b); /* Multiplies two integers */
+int op_div(int a, int b); /* Divides two integers */
+int op_mod(int a, int b); /* Computes modulus of two integers */
+
+/* Function prototype for a function that selects the correct operation function based on the operator passed as argument */
 int (*get_op_func(char *s))(int, int);
 
-#endif /* CALC_H */ 
+#endif
