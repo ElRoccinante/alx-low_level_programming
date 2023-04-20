@@ -4,10 +4,10 @@
 
 /**
 
-op_add - function that returns the sum of a and b.
+op_add - a function that returns the sum of a and b.
 @a: an input integer
 @b: an input integer
-Return: the result of a plus b.
+Return: The result of adding a and b.
 */
 int op_add(int a, int b)
 {
@@ -15,10 +15,10 @@ return (a + b);
 }
 /**
 
-op_sub - function that returns the difference of a and b.
+op_sub - a function that returns the difference of a and b.
 @a: an input integer
 @b: an input integer
-Return: the result of a minus b.
+Return: The result of subtracting b from a.
 */
 int op_sub(int a, int b)
 {
@@ -26,10 +26,10 @@ return (a - b);
 }
 /**
 
-op_mul - function that returns the product of a and b.
+op_mul - a function that returns the product of a and b.
 @a: an input integer
 @b: an input integer
-Return: the result of a times b.
+Return: The result of multiplying a by b.
 */
 int op_mul(int a, int b)
 {
@@ -37,15 +37,15 @@ return (a * b);
 }
 /**
 
-op_div - function that returns the division of a by b.
+op_div - a function that returns the division of a and b.
 
 @a: an input integer
 
 @b: an input integer
 
-Return: the result of a divided by b.
+Return: The result of dividing a by b.
 
-If b is 0, print "Error" and exit with status code 100.
+Description: If b is 0, prints "Error" and exits with a status of 100.
 */
 int op_div(int a, int b)
 {
@@ -60,11 +60,15 @@ return (a / b);
 
 /**
 
-op_mod - function that returns the remainder of a divided by b.
+op_mod - a function that returns the remainder of a divided by b.
+
 @a: an input integer
+
 @b: an input integer
-Return: the result of a modulo b.
-If b is 0, print "Error" and exit with status code 100.
+
+Return: The result of a modulo b.
+
+Description: If b is 0, prints "Error" and exits with a status of 100.
 */
 int op_mod(int a, int b)
 {
@@ -73,5 +77,6 @@ if (b == 0)
 printf("Error\n");
 exit(100);
 }
+
 return (a % b);
 }
