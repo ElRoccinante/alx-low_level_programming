@@ -4,33 +4,26 @@
 
 /**
  * sum_them_all - function that returns the sum of all its parameters.
- * @n: number of parameters to sum
- * Return: sum of all parameters
+ * @n: first counter unsigned int
+ * Return: Sum
  */
+
 int sum_them_all(const unsigned int n, ...)
 {
-    va_list args;
-    int sum = 0;
-    unsigned int i;
+va_list argscount;
+int sum = 0;
+unsigned int x;
+if (n == 0)
+{
+	return (0);
+}
 
-    // if there are no parameters, return 0
-    if (n == 0)
-    {
-        return (0);
-    }
+	va_start(argscount, n);
+	for (x = 0; x < n ; x++)
+{
+	sum += va_arg(argscount, int);
+}
+	va_end(argscount);
 
-    // initialize argument list
-    va_start(args, n);
-
-    // iterate over all parameters and add them to the sum
-    for (i = 0; i < n ; i++)
-    {
-        sum += va_arg(args, int);
-    }
-
-    // cleanup argument list
-    va_end(args);
-
-    // return the sum
-    return (sum);
+	return (sum);
 }
