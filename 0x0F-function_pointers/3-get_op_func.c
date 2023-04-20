@@ -11,7 +11,7 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
-	/* Declare the struct containing the operators and their respective functions */
+	/* Declare the struct containing the operators */
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
