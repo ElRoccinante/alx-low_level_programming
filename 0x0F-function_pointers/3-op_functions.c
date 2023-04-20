@@ -49,7 +49,6 @@ int op_mul(int a, int b)
  */
 int op_div(int a, int b)
 {
-if (b == 0)
 	return (a / b);
 }
 /**
@@ -61,7 +60,6 @@ if (b == 0)
  */
 int op_mod(int a, int b)
 {
-if (b == 0)
 	return (a % b);
 }
 
