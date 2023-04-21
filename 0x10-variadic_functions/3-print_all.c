@@ -1,47 +1,94 @@
-#include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stddef.h>
 
 /**
- * print_all - A function prints anything.
- * @format: A list of type of arguments passed to the function.
+ * print_c - prints a char
  *
- * Return: Nothing
+ * @ap: argument list
+ */
+void print_c(va_list ap)
+{
+    printf("%c", va_arg(ap, int));
+}
+
+/**
+ * print_i - prints an integer
+ *
+ * @ap: argument list
+ */
+void print_i(va_list ap)
+{
+    printf("%d", va_arg(ap, int));
+}
+
+/**
+ * print_f - prints a float
+ *
+ * @ap: argument list
+ */
+void print_f(va_list ap)
+{
+    printf("%f", va_arg(ap, double));
+}
+
+/**
+ * print_s - prints a string
+ *
+ * @ap: argument list
+ */
+void print_s(va_list ap)
+{
+    char *s;
+
+    s = va_arg(ap, char *);
+    if (s == NULL)
+        s = "(nil)";
+    printf("%s", s);
+}
+
+/**
+ * print_all - prints anything
+ *
+ * @format: list of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
-	va_list ap;
-	char *temp;
-	int i = 0;
+    va_list ap;
+    int i = 0, j;
+    char *sep = "";
 
-	va_start(ap, format);
-	while (format == NULL)
-	{
-		printf("\n");
-		return;
-	}
-	while (format[i])
-	{
-		if (format[i] == 'c')
-			printf("%c", (char) va_arg(ap, int));
-		else if (format[i] == 'i')
-			printf("%d", va_arg(ap, int));
-		else if (format[i] == 'f')
-			printf("%f", (float) va_arg(ap, double));
-		else if (format[i] == 's')
-		{
-			temp = va_arg(ap, char*);
-			if (temp != NULL)
-				printf("%s", temp);
-			else
-				printf("(nil)");
-		}
-		if ((format[i] == 'c' || format[i] == 'i' ||
-		     format[i] == 'f' || format[i] == 's') &&
-		    format[(i + 1)] != '\0')
-			printf(", ");
-		i++;
-	}
-	va_end(ap);
-	printf("\n");
+    struct print_t
+    {
+        char t;
+        void (*f)(va_list);
+    } p[] = {
+        { 'c', print_c },
+        { 'i', print_i },
+        { 'f', print_f },
+        { 's', print_s },
+        { 0, NULL }
+    };
+
+    va_start(ap, format);
+
+    while (format && format[i])
+    {
+        j = 0;
+        while (p[j].t != 0)
+        {
+            if (p[j].t == format[i])
+            {
+                printf("%s", sep);
+                p[j].f(ap);
+                sep = ", ";
+                break;
+            }
+            j++;
+        }
+        i++;
+    }
+
+    printf("\n");
+    va_end(ap);
 }
