@@ -2,21 +2,18 @@
 #define LIST_H
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
+#include <stdlib.h>
 
 /**
-
-Structure for a singly linked list node.
-@str: A dynamically allocated string.
-@len: The length of the string.
-@next: A pointer to the next node in the list.
-Description: This structure is used for a singly linked list in a Holberton
-project.
-*/
-
-
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @len: length of the string
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
 typedef struct list_s
 {
 	char *str;
