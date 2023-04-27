@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
-
-before_main - This function prints a message before the main function is executed.
-Return: void
+** premain - This function prints a message before
+*the main function is executed.
+*Return: void
 */
 void __attribute__ ((constructor)) premain()
 {
