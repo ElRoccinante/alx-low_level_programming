@@ -5,7 +5,9 @@ def is_palindrome(n):
     # Check if the string is equal to its reverse
     return string == string[::-1]
 
-list_of_numbers = []
+    list_of_numbers = []
+
+
 for i in range(999, 99, -1):
     for j in range(i, 99, -1):
         if is_palindrome(i * j):
