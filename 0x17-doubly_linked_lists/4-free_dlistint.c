@@ -1,4 +1,7 @@
 #include "lists.h"
+#include "lists.h"
+#include <stdlib.h>
+
 /**
  * free_dlistint - function that free a dlistint_t list.
  * @head: pointer to a double linked list
