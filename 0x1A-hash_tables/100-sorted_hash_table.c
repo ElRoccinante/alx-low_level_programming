@@ -147,7 +147,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 void shash_table_print(const shash_table_t *ht, int reverse)
 {
 	shash_node_t *node;
-	
+
 	if (ht == NULL)
 		return;
 
