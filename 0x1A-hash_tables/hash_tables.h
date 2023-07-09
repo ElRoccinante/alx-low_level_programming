@@ -71,29 +71,29 @@ typedef struct hash_table_s
 	hash_node_t **array;
 } hash_table_t;
 
-/* 0-hash_table_create.c */
+
 hash_table_t *hash_table_create(unsigned long int size);
 
-/* 1-djb2.c */
+
 unsigned long int hash_djb2(const unsigned char *str);
 
-/* 2-key_index.c */
+
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
-/* 3-hash_table_set.c */
+
 hash_node_t *add_n_hash(hash_node_t **, const char *, const char *);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 
-/* 4-hash_table_get.c */
+
 char *hash_table_get(const hash_table_t *ht, const char *key);
 
-/* 5-hash_table_print.c */
+
 void hash_table_print(const hash_table_t *ht);
 
-/* 6-hash_table_delete.c */
+
 void hash_table_delete(hash_table_t *ht);
 
-/* 100-sorted_hash_table.c */
+
 shash_table_t *shash_table_create(unsigned long int size);
 shash_node_t *add_n_shash(shash_node_t **, const char *, const char *);
 void add_i_shash(shash_table_t *ht, shash_node_t *new);
