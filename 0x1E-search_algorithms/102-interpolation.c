@@ -1,51 +1,41 @@
 #include "search_algos.h"
-
 /**
- * prob - Probabilistic search algorithm.
- * @array: Pointer to the list.
- * @value: The value to search for.
- * @low: The starting index of the list.
- * @high: The ending index of the list.
+ * interpolation_search - Searches for a value in a sorted array using
+ *                         the interpolation search algorithm.
+ * @array: Pointer to the first element of the array to search in.
+ * @size: Number of elements in the array.
+ * @value: Value to search for.
  *
- * Return: The index where value is located, or -1 if not found.
- */
-size_t prob(int *array, int value, size_t low, size_t high)
-{
-    /* Check if low index exceeds high index or calculated position is out of range */
-    if (low > high || low + (((double)(high - low) / (array[high] - array[low])) * (value - array[low])) >= high)
-    {
-        printf("Value checked is out of range or not found\n");
-        return (-1);
-    }
-
-    /* Calculate the probable position using interpolation formula */
-    size_t pos = low + (((double)(high - low) / (array[high] - array[low])) * (value - array[low]));
-
-    /* Print the value checked at the calculated position */
-    printf("Value checked array[%ld] = [%d]\n", pos, array[pos]);
-
-    /* Check if the value is found at the calculated position */
-    if (array[pos] == value)
-        return (pos);
-
-    /* Recursively search in the appropriate subarray */
-    return (array[pos] > value ? prob(array, value, low, pos - 1) : prob(array, value, pos + 1, high));
-}
-
-/**
- * interpolation_search - Interpolation search algorithm.
- * @array: Pointer to the list.
- * @size: The size of the list.
- * @value: The value to search for.
- *
- * Return: The index where value is located, or -1 if not found.
+ * Return: The index of the value if found, or -1 if not found.
  */
 int interpolation_search(int *array, size_t size, int value)
 {
-    /* Check for NULL array */
-    if (!array)
-        return (-1);
+	size_t pos, low, high;
 
-    /* Call the prob function to perform interpolation search */
-    return (prob(array, value, 0, size - 1));
+	if (!array)
+		return (-1);
+
+	for (low = 0, high = size - 1; high >= low;)
+	{
+		pos = low + (((double)(high - low) / (
+						array[high] - array[low])) * (value - array[low]));
+
+		if (pos < size)
+			printf("Value checked array[%ld] = [%d]\n", pos, array[pos]);
+		else
+		{
+			printf("Value checked array[%ld] is out of range\n", pos);
+			break;
+		}
+
+		if (array[pos] == value)
+			return (pos);
+
+		if (array[pos] < value)
+			low = pos + 1;
+
+		if (array[pos] > value)
+			high = pos - 1;
+	}
+	return (-1);
 }
